@@ -58,3 +58,49 @@ import sys
 # leftover =10-new_s_len
 # new_str += new_str[:leftover]
 # print(new_str)
+
+
+# def minimumBribes(q):
+#     number_of_bribe = 0
+#     sorted_q = sorted(q)
+#     pivot = last_index=len(q)-1
+#     while True:
+#         if pivot==0 and last_index==0:
+#             return number_of_bribe
+#         if sorted_q[pivot] == q[last_index]:
+#             pivot -=1
+#             last_index -=1
+#         else:
+#             if sorted_q[pivot] == q[last_index-1]:
+#                 q[last_index],q[last_index-1] = q[last_index-1],q[last_index]
+#                 number_of_bribe +=1
+#             elif sorted_q[pivot] == q[last_index-2]:
+#                 q[last_index-2],q[last_index-1] = q[last_index-1],q[last_index-2]
+#                 number_of_bribe +=1
+#             else: 
+#                 return "Too chaotic"
+        
+    # return number_of_bribe
+def min_swap(arr):  
+    swap= 0
+    index=0
+    while True:
+        if index==len(arr)-1:
+            break
+        if arr[index]-1 == index:
+            index += 1
+        else:
+            arr[index-1],arr[index] = arr[index],arr[index-1]
+            swap +=1
+        
+        
+    return swap
+
+if __name__ == '__main__':
+    
+    test =[[5, 1, 2, 3, 7, 8, 6, 4],
+    [1,2,5,4,3],
+    [1, 2, 5, 3, 4, 7, 8, 6]]
+    for i in test:
+        ans = min_swap(i)
+        print(ans)
